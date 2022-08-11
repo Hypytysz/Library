@@ -5,7 +5,7 @@ from django.template.defaultfilters import slugify
 class Book(models.Model):
     title = models.CharField(max_length=250)
     description = models.TextField()
-    author = models.ForeignKey('Authors.Author', on_delete=models.CASCADE, related_name='books')
+    author = models.ForeignKey('authors.Author', on_delete=models.CASCADE, related_name='books')
     year = models.SmallIntegerField()
     pages = models.IntegerField()
     slug = models.SlugField(null=True)
