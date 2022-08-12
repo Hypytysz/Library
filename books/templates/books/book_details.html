@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <title>Szczegoly ksiazki</title>
 </head>
+<style> td, th { border: 1px solid black; } </style>
 <body>
+<table>
+    <thead>
+    <tr>
+        <th> tytuł </th><th> Autor </th><th> Opis </th><th> Rok wydania </th><th> Strony </th>
+    </tr>
+    </thead>
 {% for e in book_details %}
-<div>
-    <p>
-        <a><b>{{e.title}} {{e.author}}</b> <b>{{e.description}}</b> <b>{{e.year}} r.</b><b>{{e.pages}} str.</b></a>
-</p>
-</div>
+
+    <tr>
+        <td>{{e.title}}</td> <td>{{e.author}}</td> <td>{{e.description}}</td> <td>{{e.year}}</td><td>{{e.pages}}</td>
+    </tr>
+
 {% endfor %}
+
+</table>
     <ul>
         <li><a href="{% url 'books_list' %}">Lista ksiażek</a></li>
         <li><a href="{% url 'homepage' %}">Lista autorów</a></li>

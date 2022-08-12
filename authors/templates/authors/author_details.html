@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Szczegoly autora</title>
+    <title>Szczególy autora</title>
 </head>
+<style> td, th { border: 1px solid black; } </style>
 <body>
+<table>
+    <thead>
+    <tr>
+        <th>Imie</th><th>Nazwisko</th><th>Data urodzenia</th><th>Data śmierci</th>
+    </tr>
+    </thead>
 {% for e in author_details %}
-<div>
-    <p>
-        <a><b>{{e.first_name}} {{e.last_name}}</b> <b>{{e.birth_date}} r.</b> <b>{{e.death_date}} r.</b></a>
-</p>
-</div>
+
+
+    <tr><td>{{e.first_name}}</td><td>{{e.last_name}}</td><td> {{e.birth_date}} r.</td> <td>{{e.death_date}} r.</td></tr>
+
 {% endfor %}
+    </table>
     <ul>
         <li><a href="{% url 'books_list' %}">Lista ksiażek</a></li>
         <li><a href="{% url 'homepage' %}">Lista autorów</a></li>

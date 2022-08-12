@@ -8,6 +8,6 @@ class Author(models.Model):
     death_date = models.DateField(null=True, blank=True)
 
     def __str__(self):
-        return f"Autor: {self.first_name} {self.last_name}"
+        return f"{self.first_name} {self.last_name}"
     def __repr__(self):
-        return f"Autor: {self.first_name} {self.last_name}"
+        return f"{self.first_name} {self.last_name}"
