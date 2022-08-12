@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista autorów</title>
+</head>
+<body>
+{% for e in authors_list %}
+<div>
+    <p>
+        <a href="{% url 'details' pk=e.pk %}"><b>{{e.first_name}} {{e.last_name}}</b></a>
+</p>
+</div>
+{% endfor %}
+    <ul>
+        <li><a href="{% url 'books_list' %}">Lista ksiażek</a></li>
+        <li><a href="{% url 'homepage' %}">Lista autorów</a></li>
+    </ul>
+</body>
+</html>

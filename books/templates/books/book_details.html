@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegoly ksiazki</title>
+</head>
+<body>
+{% for e in book_details %}
+<div>
+    <p>
+        <a><b>{{e.title}} {{e.author}}</b> <b>{{e.description}}</b> <b>{{e.year}} r.</b><b>{{e.pages}} str.</b></a>
+</p>
+</div>
+{% endfor %}
+    <ul>
+        <li><a href="{% url 'books_list' %}">Lista ksiażek</a></li>
+        <li><a href="{% url 'homepage' %}">Lista autorów</a></li>
+    </ul>
+</body>
+</html>
