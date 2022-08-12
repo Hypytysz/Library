@@ -3,6 +3,8 @@ from .models import Author
 from django.shortcuts import render
 
 # Create your views here.
+def homepage(request):
+    return render(request, 'authors/homepage.html', {'homepage':{}})
 def authors_list(request):
     creators = Author.objects.all()
     return render(request, 'authors/authors_list.html', {"authors_list": creators})
