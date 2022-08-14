@@ -28,7 +28,7 @@
 {% for e in book_details %}
 
     <tr>
-        <td><h3> {{e.title}} </h3></td> <td><h3> {{e.author}} </h3></td><td><h3> {{e.year}} </h3></td><td><h3> {{e.pages}} </h3></td>
+        <td><h3> {{e.title}} </h3></td> <td><h3><b><a href="{% url 'details' pk=e.author.pk %}"> {{e.author}} </a></b></h3></td><td><h3> {{e.year}} </h3></td><td><h3> {{e.pages}} </h3></td>
     </tr>
     </table>
 
