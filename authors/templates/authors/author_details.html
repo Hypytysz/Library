@@ -1,22 +1,7 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Szczególy autora</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'library.css' %}">
-</head>
+{% extends 'authors/homepage.html' %}
+{% block content %}
 <style> td, th { border: 1px solid black; } </style>
-<body>
-    <div class="page-header">
-        <h1><a href="/">Biblioteka</a></h1>
-        <h2><a href="{% url 'books_list' %}">Lista ksiażek</a></h2>
-        <h2><a href="{% url 'authors_list' %}">Lista autorów</a></h2>
-    </div>
+
 <div class="content">
     <center>
 <table>
@@ -28,17 +13,19 @@
 {% for e in author_details %}
 
 
-    <tr><td><h3>{{e.first_name}}</h3></td><td><h3>{{e.last_name}}</h3></td><td><h3> {{e.birth_date}} r.</h3></td> <td><h3>{{e.death_date}} r.</h3></td></tr>
+    <tr><td><h3>{{e.first_name}}</h3></td>
+        <td><h3>{{e.last_name}}</h3></td>
+        <td><h3> {{e.birth_date}} r.</h3></td>
+        <td><h3>{{e.death_date}} r.</h3></td></tr>
     </table>
         </center>
 </div>
 {% endfor %}
     <div class="content">
+                <center><h2>Lista książek:</h2></center>
 {% for a in author_books %}
-        <center><h2>Lista książek:</h2></center>
         <center><h3><a href="{% url 'book_details' pk=a.pk %}"><b>{{a.title}}</b></a></h3></center>
         {% endfor %}
 
 </div>
-</body>
-</html>
+{% endblock %}
