@@ -1,29 +1,42 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <title>Szczegoly ksiazki</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'library.css' %}">
 </head>
 <style> td, th { border: 1px solid black; } </style>
 <body>
+    <div class="page-header">
+        <h1><a href="/">Biblioteka</a></h1>
+        <h2><a href="{% url 'books_list' %}">Lista ksiażek</a></h2>
+        <h2><a href="{% url 'authors_list' %}">Lista autorów</a></h2>
+    </div>
+    <div class="content">
+        <center>
 <table>
     <thead>
     <tr>
-        <th> tytuł </th><th> Autor </th><th> Opis </th><th> Rok wydania </th><th> Strony </th>
+        <th> tytuł </th><th> Autor </th><th> Rok wydania </th><th> Strony </th>
     </tr>
     </thead>
 {% for e in book_details %}
 
     <tr>
-        <td> {{e.title}} </td> <td> {{e.author}} </td> <td> {{e.description}} </td> <td> {{e.year}} </td><td> {{e.pages}} </td>
+        <td><h3> {{e.title}} </h3></td> <td><h3> {{e.author}} </h3></td><td><h3> {{e.year}} </h3></td><td><h3> {{e.pages}} </h3></td>
     </tr>
+    </table>
 
+
+            <h3>Opis: {{e.description}} </h3>
+</center>
 {% endfor %}
+    </div>
 
-</table>
-    <ul>
-        <li><a href="{% url 'books_list' %}">Lista ksiażek</a></li>
-        <li><a href="{% url 'authors_list' %}">Lista autorów</a></li>
-    </ul>
 </body>
 </html>

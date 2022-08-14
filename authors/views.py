@@ -11,5 +11,8 @@ def authors_list(request):
 
 def author_details(request, pk):
     details = Author.objects.filter(id=pk)
-    return render(request, 'authors/author_details.html', {"author_details": details})
+    details2 = Author.objects.get(pk=pk)
+    books = details2.books.all()
+    return render(request, 'authors/author_details.html', {"author_details": details, 'author_books': books})
+
 
