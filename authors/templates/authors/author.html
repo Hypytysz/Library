@@ -10,7 +10,7 @@
         <th>Imie</th><th>Nazwisko</th><th>Data urodzenia</th><th>Data śmierci</th>
     </tr>
     </thead>
-{% for e in author_details %}
+{% for e in author %}
 
 
     <tr><td><h3>{{e.first_name}}</h3></td>
@@ -24,7 +24,7 @@
     <div class="content">
                 <center><h2>Lista książek:</h2></center>
 {% for a in author_books %}
-        <center><h3><a href="{% url 'book_details' pk=a.pk %}"><b>{{a.title}}</b></a></h3></center>
+        <center><h3><a href="{% url 'book' pk=a.pk %}"><b>{{a.title}}</b></a></h3></center>
         {% endfor %}
 
 </div>

@@ -5,10 +5,10 @@ from books.models import Book
 from authors.models import Author
 
 
-def books_list(request):
+def books(request):
     books = Book.objects.all()
-    return render(request, 'books/books_list.html', {"books_list": books})
+    return render(request, 'books/books.html', {"books": books})
 
-def book_details(request, pk):
+def book(request, pk):
     details = Book.objects.filter(id=pk)
-    return render(request, 'books/book_details.html', {"book_details": details})
+    return render(request, 'books/book.html', {"book": details})

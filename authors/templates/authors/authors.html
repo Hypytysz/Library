@@ -1,6 +1,6 @@
 {% extends 'homepage.html' %}
 {% block content %}
-{% for e in authors_list %}
+{% for e in authors %}
 <div class="content">
 
         <center><h3><a href="{% url 'details' pk=e.pk %}"><b>{{e.first_name}} {{e.last_name}}</b></a></h3></center>
