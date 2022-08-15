@@ -1,0 +1,30 @@
+{% extends 'homepage.html' %}
+{% block content %}
+<center><h1>Posty</h1></center>
+
+{% for p in posts %}
+<div class="content">
+
+        <center><h3><a href="{% url 'postdetails' pk=p.pk %}"><b> {{ p }}</b></a></h3></center>
+
+</div>
+    {% endfor %}
+
+
+<form method = "POST">
+    {% csrf_token %}
+
+        <center>
+            <h1>Nowy post</h1>
+        <label for = "title">Tytuł</label>
+        <input type="text" id="title" name="title">
+
+
+    <p>
+        <textarea id="content" name="content" rows="4" cols="50" placeholder="treść..."></textarea>
+    </p>
+        <input type="submit" value="send">
+        </center>
+</form>
+
+{% endblock %}
