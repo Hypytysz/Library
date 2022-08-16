@@ -1,0 +1,17 @@
+{% extends 'homepage.html' %}
+{% block content %}
+<center><h1>Edytuj post</h1></center>
+<form method = "POST">
+
+    {% csrf_token %}
+    <center>
+        <label for = "title">Tytuł</label>
+        <input type="text" id="title" name="title" value="{{post.title}}">
+
+    <p>
+        <textarea id="content" name="content" rows="4" cols="50" placeholder="treść...">{{ post.content }}</textarea>
+    </p>
+        <input type="submit" value="send">
+           </center>
+</form>
+{% endblock %}

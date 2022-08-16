@@ -5,12 +5,13 @@
 {% for p in posts %}
 <div class="content">
 
-        <center><h3><a href="{% url 'postdetails' pk=p.pk %}"><b> {{ p }}</b></a></h3></center>
+        <center><h3><a href="{% url 'postdetails' pk=p.pk %}"><b> {{ p }}
+        </b></a>{% if user == p.author %} <a href="{% url 'edit' pk=p.pk %}">  Edytuj</a><a href="{% url 'delete' pk=p.pk %}">  Usuń</a>{% endif %}</h3></center>
 
 </div>
     {% endfor %}
 
-
+{% if user.is_authenticated %}
 <form method = "POST">
     {% csrf_token %}
 
@@ -26,5 +27,6 @@
         <input type="submit" value="send">
         </center>
 </form>
+{% endif %}
 
 {% endblock %}
