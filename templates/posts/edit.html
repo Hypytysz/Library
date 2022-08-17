@@ -12,6 +12,9 @@
         <textarea id="content" name="content" rows="4" cols="50" placeholder="treść...">{{ post.content }}</textarea>
     </p>
         <input type="submit" value="send">
+                <div class = "menu">
+            <a href="{% url 'posts' %}">Powrót</a>
+        </div>
            </center>
 </form>
 {% endblock %}

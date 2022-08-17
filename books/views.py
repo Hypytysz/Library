@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 # Create your views here.
 from books.models import Book
-from authors.models import Author
 
 
 def books(request):

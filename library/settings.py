@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'authors.apps.AuthorsConfig',
     'books.apps.BooksConfig',
     'posts.apps.PostsConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'library.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,3 +134,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SHELL_PLUS_PRINT_SQL = True
+LOGIN_REDIRECT_URL = "homepage"
+LOGOUT_REDIRECT_URL = "homepage"
+PASSWORD_REDIRECT_URL = "homepage"

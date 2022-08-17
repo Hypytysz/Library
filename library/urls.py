@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from authors import views
+
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-    path('', include('authors.urls')),
-    path('books', include('books.urls')),
-    path('posts', include('posts.urls')),
+    path('authors/', include('authors.urls')),
+    path('books/', include('books.urls')),
+    path('posts/', include('posts.urls')),
+    path('accounts/', include("django.contrib.auth.urls")),
+    path('', views.homepage, name='homepage'),
 ]

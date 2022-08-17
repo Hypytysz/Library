@@ -1,0 +1,38 @@
+{% load static %}
+<html lang="pl">
+<head>
+    <title>Biblioteka</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'library.css' %}">
+
+</head>
+<body>
+    <div class="page-header">
+
+
+
+        <h1><a href="/">Biblioteka</a>        <a><input class="form-control me-2" type="text" placeholder="Search" style="position: absolute; left: 80%; bottom: 90%; width: 300px">
+        <button class="btn btn-primary" type="button" style="position: absolute; left: 80%; bottom: 85%; width: 300px">Search</button></a></h1>
+
+        <a  href="{% url 'books' %}" style="font-family:fantasy; font-size:170%; margin-right: 0.5cm;">Lista ksiażek</a>
+        <a href="{% url 'authors' %}" style="font-family:fantasy; font-size:170%; margin-right: 0.5cm;">Lista autorów</a>
+        <a href="{% url 'posts' %}" style="font-family:fantasy; font-size:170%; margin-right: 0.5cm;">Lista postów</a>
+        {% if user.is_authenticated %}
+        <p><a href="{% url 'logout' %}" style="font-family:fantasy; font-size:170%; margin-right: 0.5cm;" >Wyloguj</a>
+            <a href="{% url 'password_change' %}" style="font-family:fantasy; font-size:100%; margin-right: 0.5cm;" >Zmień hasło</a>
+        </p>
+        {% else %}
+        <p><a href="{% url 'login' %}" style="font-family:fantasy; font-size:170%; margin-right: 0.5cm;">Zaloguj   </a>
+</p>
+        {% endif %}
+    </div>
+
+
+            {% block content %}
+            {% endblock %}
+
+</body>
+</html>
