@@ -6,9 +6,25 @@
 
     <center>
     <h1>Treść posta: </h1><h3>{{ post.content }}</h3><h1>Autor posta: </h1><h3>{{ post.author }}</h3>
-        <div class = "menu">
+        <div class = "menu" style="position:relative; left: 600px;">
+
+
             <a href="{% url 'posts' %}">Powrót</a>
         </div>
            </center>
 </form>
+<center>
+    <h1>Komentarze: </h1>
+                {% for c in post.comments.all %}
+                <div>
+                    {{ c.content }}
+                    <br>
+                    <small>{{ c.email }} | {{ c.created }}</small>
+            </div>
+            {% endfor %}
+    </center>
+<center>
+{% include 'posts/includes/comment_form.html' %}
+    </center>
+
 {% endblock %}

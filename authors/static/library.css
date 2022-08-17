@@ -25,6 +25,7 @@ h1, h2 a {
 
 .menu, .menu:hover, .top-menu:visited {
     color: #ffffff;
-    float: right;
+    float: center;
+    margin-left: 30;
     font-size: 26pt;
 }

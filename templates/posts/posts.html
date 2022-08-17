@@ -12,10 +12,7 @@
     {% endfor %}
 
 {% if user.is_authenticated %}
-<form method = "POST">
-    {% csrf_token %}
-
-        <center>
+<center>
             <h1>Nowy post</h1>
         <label for = "title">Tytuł</label>
         <input type="text" id="title" name="title">
@@ -25,8 +22,7 @@
         <textarea id="content" name="content" rows="4" cols="50" placeholder="treść..."></textarea>
     </p>
         <input type="submit" value="send">
-        </center>
-</form>
+    </center>
 {% endif %}
 
 {% endblock %}
