@@ -13,15 +13,7 @@
 
 {% if user.is_authenticated %}
 <center>
-            <h1>Nowy post</h1>
-        <label for = "title">Tytuł</label>
-        <input type="text" id="title" name="title">
-
-
-    <p>
-        <textarea id="content" name="content" rows="4" cols="50" placeholder="treść..."></textarea>
-    </p>
-        <input type="submit" value="send">
+    {%include 'posts/includes/post_form.html'%}
     </center>
 {% endif %}
 

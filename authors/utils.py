@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Union
+from typing import List
 
 import csv
-import os
+
 
 @dataclass
 class AuthorObject:

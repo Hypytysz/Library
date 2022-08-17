@@ -1,5 +1,9 @@
 from django import forms
 
-class CommentForm(forms.Form):
-    email = forms.EmailField()
-    content = forms.CharField(widget=forms.Textarea)
+from comments.models import CommentPost
+
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = CommentPost
+        exclude = ['post']
