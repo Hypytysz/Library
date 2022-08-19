@@ -31,12 +31,16 @@ def post_details(request, pk):
 
 def post_edit(request, pk):
     post= Post.objects.get(pk=pk)
+    data = {'title':post.title, 'content':post.content}
+    edit_form = PostForm(data=data)
     if request.method == "POST":
-        post_form = PostForm(request.POST, instance=post)
-        if post_form.is_valid():
-            post_form.save()
+        edit_form = PostForm(request.POST, instance=post)
+        if edit_form.is_valid():
+            post.title = edit_form.cleaned_data['title']
+            post.content = edit_form.cleaned_data['content']
+            post.save()
             return redirect("posts")
-    return render(request, 'posts/edit.html', {"post":post})
+    return render(request, 'posts/edit.html', {"post":post, 'edit_form': edit_form})
 
 def delete_post(request, pk):
     Post.objects.filter(pk=pk).delete()

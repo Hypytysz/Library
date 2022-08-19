@@ -1,8 +1,9 @@
+{% load crispy_forms_tags %}
 <div class="page-header">
                 <h1>Komentarz</h1>
 <form method="post">
     {% csrf_token %}
-    {{ comment_form.as_p }}
+    {{ comment_form | crispy }}
     <input type="submit" value="send">
 </form>
 </div>

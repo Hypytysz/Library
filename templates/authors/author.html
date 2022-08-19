@@ -10,17 +10,20 @@
         <th>Imie</th><th>Nazwisko</th><th>Data urodzenia</th><th>Data śmierci</th>
     </tr>
     </thead>
-{% for e in author %}
 
 
-    <tr><td><h3>{{e.first_name}}</h3></td>
-        <td><h3>{{e.last_name}}</h3></td>
-        <td><h3> {{e.birth_date}} r.</h3></td>
-        <td><h3>{{e.death_date}} r.</h3></td></tr>
+    <tr><td><h3>{{author.first_name}}</h3></td>
+        <td><h3>{{author.last_name}}</h3></td>
+        <td><h3> {{author.birth_date}} r.</h3></td>
+        <td><h3>{{author.death_date}} r.</h3></td></tr>
     </table>
+
+        <center><img src='{{ author.image.url }}' width="10%"></center>
+
         </center>
 </div>
-{% endfor %}
+
+
     <div class="content">
                 <center><h2>Lista książek:</h2></center>
 {% for a in author_books %}
@@ -28,4 +31,7 @@
         {% endfor %}
 
 </div>
+
+
+
 {% endblock %}
