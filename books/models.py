@@ -9,19 +9,11 @@ class Book(models.Model):
     year = models.SmallIntegerField()
     pages = models.IntegerField()
     slug = models.SlugField(null=True)
+    tags = models.ManyToManyField('tags.Tag')
 
     def __str__(self):
         return f"Book: {self.title} {self.author}"
     def __repr__(self):
         return f"Book: {self.title} {self.author}"
 
-    def save(
-        self, force_insert=False, force_update=False, using=None, update_fields=None
-    ):
-        if not self.slug:
-            self.slug = slugify(self.title)
-
-        return super().save(
-            force_insert=force_insert, force_update=force_update, using=using, update_fields=update_fields
-        )
 
